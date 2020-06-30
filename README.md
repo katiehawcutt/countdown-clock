@@ -1,6 +1,6 @@
 # Countdown Timer
 
-### Things I learnt / experimented with in this project
+### Things I learnt / experimented with in this project:
 
 - I used const for the first time! (only used var up until now)
 - More use of setTimeout
