@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Countdown timer</title>
+    <style>
+      .background {
+        background-image: radial-gradient(white, cornflowerblue, rgb(12, 43, 100));
+        height: 100vh;
+        /*background-color: cornflowerblue;*/
+      }
+      div {
+        font-family: "Courier New", Courier, monospace;
+        color: hotpink;
+        font-size: 200px;
+        text-align: center;
+        
+      }
+      .button {
+        background-color: hotpink;
+        color: rgb(12, 43, 100);
+        font-family: "Courier New", Courier, monospace;
+        font-size: 30px;
+        margin-left: 30px;
+      }
+      .button:hover{
+        transform: scale(1.1);
+
+      }
+      
+      .text {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 30px;
+        color: rgb(4, 22, 56);
+        margin-left: 30px;
+        margin-top: 20px;
+      }
+      .finished{
+        font-family: "Courier New", Courier, monospace;
+        font-size: 100px;
+        color: rgb(12, 43, 100);
+        text-align:center;
+        margin-top: -20px;
+        font-weight: bold;
+        display: none;
+      }
+      #finished {
+        animation-name: finish;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+      }
+      @keyframes finish {
+        0% {
+          transform: scale(0.2) rotate(0deg);
+        }
+        25% {
+          transform: scale(0.4) rotate(90deg);
+        }
+        50% {
+          transform: scale(0.6) rotate(180deg);
+        }
+        75% {
+          transform: scale(0.8) rotate(270deg);
+        }
+        100% {
+          transform: scale(1) rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="background">
+    <form>
+    </br>
+  </br>
+      <label for="userCountdown" class="text">Countdown in seconds from:</label>
+      <input class="text" type="number" id="countdownNumber" name="countdown" /></br> </br>
+      <input
+        class="button"
+        type="button"
+        value="CONFIRM"
+        onclick="updateStartTime()"
+      />
+    </form>
+  </br></br>
+    <input class="button" type="button" value="START" onclick="startCountdown()" /></br></br></br>
+    <input class="button" type="button" id="resetbutton" value="RESET"/>
+    <div id="number">0</div>
+    <p class="finished" id="finished">Finished!</p>
+
+    <script>
+      var count;
+      const speed = 1000;
+      var startNumberInput = document.getElementById("countdownNumber");
+      function updateStartTime() {
+        document.getElementById("number").innerHTML = startNumberInput.value;
+        count = startNumberInput.value;
+      }
+
+      function startCountdown(){
+        setTimeout(countdown, speed);
+      }
+
+      function countdown() {
+        count -= 1;
+        document.getElementById("number").innerHTML = count;
+        if (count > 0) {
+          setTimeout(countdown, speed);
+        } else if (count == 0) {
+          //console.log(document.getElementsByClassName("background")[0]);
+          document.getElementsByClassName(
+            "background"
+          )[0].style.backgroundImage = "radial-gradient(white, gold, orange)";
+          document.getElementsByClassName("finished")[0].style.display ="inherit";
+        }
+      }
+      var resetButton = document.getElementById("resetbutton");
+      resetButton.addEventListener("click", reset);
+
+
+      function reset(){
+        document.getElementsByClassName("background")[0].style.backgroundImage = "radial-gradient(white, cornflowerblue, rgb(12, 43, 100)";
+        document.getElementById("finished").style.display = "none";
+        startNumberInput.value = 0;
+        
+      }
+      
+    </script>
+  </body>
+</html>
