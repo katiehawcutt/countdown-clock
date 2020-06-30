@@ -1,5 +1,7 @@
 # Countdown Timer
 
+###### April 2020
+
 ### Things I learnt / experimented with in this project:
 
 - I used const for the first time! (only used var up until now)
