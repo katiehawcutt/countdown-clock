@@ -1,5 +1,7 @@
 # Countdown Timer
 
+![Countdown Timer](Images/countdown-timer-screenshot.PNG)
+
 ###### April 2020
 
 ### Things I learnt / experimented with in this project:
